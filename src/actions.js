@@ -12,7 +12,7 @@ export function updateActions() {
 		name: 'Set channel name',
 		options: [this.CHANNELS_FIELD, Fields.Name],
 		callback: async ({ options }) => {
-			this.sendCommand(`SET ${options.channel} CHAN_NAME {${options.name.substr(0, 8)}}`)
+			this.sendCommand(`SET ${options.channel} CHAN_NAME {${options.name.substr(0, 31)}}`)
 		},
 	}
 
@@ -42,6 +42,32 @@ export function updateActions() {
 		},
 	}
 
+	actions['microphone_setaudiogain'] = {
+		name: 'Set audio gain of microphone',
+		options: [this.CHANNELS_A_FIELD, Fields.GainSet],
+		callback: async ({ options }) => {
+			let value = options.gain + 25
+
+			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN ${value}`)
+		},
+	}
+
+	actions['microphone_increasegain'] = {
+		name: 'Increase audio gain of microphone',
+		options: [this.CHANNELS_A_FIELD, Fields.GainIncrement],
+		callback: async ({ options }) => {
+			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN INC ${options.gain}`)
+		},
+	}
+
+	actions['microphone_decreasegain'] = {
+		name: 'Decrease audio gain of microphone',
+		options: [this.CHANNELS_A_FIELD, Fields.GainIncrement],
+		callback: async ({ options }) => {
+			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN DEC ${options.gain}`)
+		},
+	}
+
 	actions['flash_lights'] = {
 		name: 'Flash lights on receiver',
 		tooltip: 'It will automatically turn off after 30 seconds',
@@ -57,6 +83,16 @@ export function updateActions() {
 		options: [this.CHANNELS_FIELD],
 		callback: async ({ options }) => {
 			this.sendCommand(`SET ${options.channel} FLASH ON`)
+		},
+	}
+
+	actions['unlink_channel'] = {
+		name: 'Unlink any mic in any charger from any APT',
+		tooltip:
+			'If the linked transmitter is off, or on a non-networked charger, it does not receive the unlink, but will not be able to reconnect to the APT channel',
+		options: [this.CHANNELS_A_FIELD],
+		callback: async ({ options }) => {
+			this.sendCommand(`SET ${options.channel} UNLINK`)
 		},
 	}
 

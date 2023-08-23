@@ -73,9 +73,9 @@ export const Fields = {
 	},
 	Name: {
 		type: 'textinput',
-		label: 'Name (8 characters max)',
+		label: 'Name (31 characters max)',
 		id: 'name',
 		default: '',
-		regex: '/^.{1,8}$/',
+		regex: '/^.{1,31}$/',
 	},
 }

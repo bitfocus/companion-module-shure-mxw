@@ -62,6 +62,24 @@ export function updateFeedbacks() {
 		},
 	}
 
+	feedbacks['microphone_gain'] = {
+		type: 'boolean',
+		name: 'Microphone Gain',
+		description: "If the selected microphone's gain is set, change the color of the button.",
+		defaultStyle: {
+			color: combineRgb(0, 0, 0),
+			bgcolor: combineRgb(255, 255, 0),
+		},
+		options: [this.CHANNELS_FIELD, Fields.GainSet],
+		callback: ({ options }) => {
+			if (this.api.getChannel(parseInt(options.channel)).intAudioGain == options.gain) {
+				return true
+			} else {
+				return false
+			}
+		},
+	}
+
 	feedbacks['transmitter_turned_off'] = {
 		type: 'boolean',
 		name: 'Transmitter Turned Off',
@@ -72,10 +90,7 @@ export function updateFeedbacks() {
 		},
 		options: [this.CHANNELS_FIELD],
 		callback: ({ options }) => {
-			if (
-				this.api.getChannel(parseInt(options.channel)).txType == 'Unknown' ||
-				this.api.getChannel(parseInt(options.channel)).batteryBars == 255
-			) {
+			if (this.api.getChannel(parseInt(options.channel)).txType == 'Unknown') {
 				return true
 			} else {
 				return false

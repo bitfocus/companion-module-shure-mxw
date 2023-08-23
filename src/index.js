@@ -11,7 +11,7 @@ import { Choices, Models } from './setup.js'
  * @extends InstanceBase
  * @author Keith Rocheck <keith.rocheck@gmail.com>
  */
-class ShureWirelessInstance extends InstanceBase {
+class ShureMxwInstance extends InstanceBase {
 	/**
 	 * Create an instance of a shure WX module.
 	 *
@@ -50,8 +50,8 @@ class ShureWirelessInstance extends InstanceBase {
 
 		this.config = config
 
-		if (this.CONFIG_MODEL[this.config.modelID] !== undefined) {
-			this.model = this.CONFIG_MODEL[this.config.modelID]
+		if (Models[this.config.modelID] !== undefined) {
+			this.model = Models[this.config.modelID]
 		} else {
 			this.log('debug', `Shure Model: ${this.config.modelID} NOT FOUND`)
 		}
@@ -114,7 +114,7 @@ class ShureWirelessInstance extends InstanceBase {
 				label: 'Model Type',
 				choices: Choices.Models,
 				width: 6,
-				default: 'ulxd4',
+				default: 'mxwapt8',
 			},
 			{
 				type: 'checkbox',
@@ -372,4 +372,4 @@ class ShureWirelessInstance extends InstanceBase {
 	}
 }
 
-runEntrypoint(ShureWirelessInstance, [])
+runEntrypoint(ShureMxwInstance, [])
