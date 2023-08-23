@@ -1,20 +1,23 @@
 {
-	"name": "your-module-name",
-	"version": "0.1.0",
-	"main": "main.js",
+	"name": "shure-mxw",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"type": "module",
 	"scripts": {
-		"format": "prettier -w ."
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write ."
 	},
-	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-your-module-name.git"
+		"url": "git+https://github.com/bitfocus/companion-module-shure-mxw.git"
 	},
+	"license": "MIT",
 	"dependencies": {
-		"@companion-module/base": "~1.4.0"
+		"@companion-module/base": "~1.4"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "^1.2.0"
+		"@companion-module/tools": "~1.4",
+		"prettier": "^2.8.3"
 	},
 	"prettier": "@companion-module/tools/.prettierrc.json"
 }
