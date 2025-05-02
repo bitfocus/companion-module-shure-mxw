@@ -28,7 +28,7 @@ export function updateFeedbacks() {
 
 	feedbacks['channel_muted'] = {
 		type: 'boolean',
-		label: 'Channel Muted',
+		name: 'Channel Muted',
 		description: 'If the selected channel is muted, change the color of the button.',
 		defaultStyle: {
 			color: combineRgb(255, 255, 255),
@@ -36,7 +36,7 @@ export function updateFeedbacks() {
 		},
 		options: [this.CHANNELS_FIELD],
 		callback: ({ options }) => {
-			if (this.api.getChannel(parseInt(options.channel)).audioMute == 'ON') {
+			if (this.api.getChannel(parseInt(options.channel)).txStatus == 'MUTE') {
 				return true
 			} else {
 				return false
