@@ -68,6 +68,21 @@ export function updateActions() {
 		},
 	}
 
+	actions['microphone_setmute'] = {
+		name: 'Set microphone mute',
+		options: [this.CHANNELS_A_FIELD, Fields.Mute],
+		callback: async ({ options }) => {
+			if (options.choice == 'TOGGLE') {
+				const channel = this.api.getChannel(options.channel)
+				const newStatus = channel.txStatus == 'ACTIVE' ? 'MUTE' : 'ACTIVE'
+				this.sendCommand(`SET ${options.channel} TX_STATUS ${newStatus}`)
+			} else {
+				const newStatus = options.choice == 'ON' ? 'MUTE' : 'ACTIVE'
+				this.sendCommand(`SET ${options.channel} TX_STATUS ${newStatus}`)
+			}
+		},
+	}
+
 	actions['flash_lights'] = {
 		name: 'Flash lights on receiver',
 		tooltip: 'It will automatically turn off after 30 seconds',
