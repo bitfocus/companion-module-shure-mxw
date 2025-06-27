@@ -1,11 +1,11 @@
 {
 	"name": "shure-mxw",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"format": "prettier --write ."
+		"format": "prettier -w .",
+		"package": "companion-module-build"
 	},
 	"repository": {
 		"type": "git",
@@ -13,11 +13,12 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@companion-module/base": "~1.10"
+		"@companion-module/base": "~1.12.1"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "~2.0",
-		"prettier": "^3.0.0"
+		"@companion-module/tools": "^2.3.0",
+		"prettier": "^3.6.2"
 	},
-	"prettier": "@companion-module/tools/.prettierrc.json"
+	"prettier": "@companion-module/tools/.prettierrc.json",
+	"packageManager": "yarn@4.9.1"
 }
