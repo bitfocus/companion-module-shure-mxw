@@ -96,5 +96,13 @@ export function updateActions() {
 		},
 	}
 
+	actions['set_led_state'] = {
+		name: 'Set the LED state of a channel',
+		options: [this.CHANNELS_A_FIELD, Fields.RedLEDState, Fields.GreenLEDState],
+		callback: async ({ options }) => {
+			this.sendCommand(`SET ${options.channel} LED_STATUS ${options.redled} ${options.greenled}`)
+		},
+	}
+
 	this.setActionDefinitions(actions)
 }

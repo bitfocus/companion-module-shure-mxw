@@ -31,6 +31,14 @@ export const Choices = {
 		{ id: 'OFF', label: 'Unmute' },
 		{ id: 'TOGGLE', label: 'Toggle Mute/Unmute' },
 	],
+	LEDStates: [
+		{ id: 'ON', label: 'On' },
+		{ id: 'OF', label: 'Off' },
+		{ id: 'ST', label: 'Strobe' },
+		{ id: 'FL', label: 'Flash' },
+		{ id: 'PU', label: 'Pulse' },
+		{ id: 'NC', label: 'No Change' },
+	]
 }
 
 export const Fields = {
@@ -78,4 +86,18 @@ export const Fields = {
 		default: '',
 		regex: '/^.{1,31}$/',
 	},
+	RedLEDState: {
+		type: 'dropdown',
+		label: 'Red LED State',
+		id: 'redled',
+		default: 'OF',
+		choices: Choices.LEDStates,
+	},
+	GreenLEDState: {
+		type: 'dropdown',
+		label: 'Green LED State',
+		id: 'greenled',
+		default: 'OF',
+		choices: Choices.LEDStates,
+	}
 }
