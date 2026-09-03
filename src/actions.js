@@ -44,11 +44,11 @@ export function updateActions() {
 
 	actions['microphone_setaudiogain'] = {
 		name: 'Set audio gain of microphone',
-		options: [this.CHANNELS_A_FIELD, Fields.GainSet],
+		options: [this.CHANNELS_A_FIELD, Fields.MicrophoneGainSet],
 		callback: async ({ options }) => {
 			let value = options.gain + 25
 
-			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN ${value}`)
+			this.sendCommand(`SET ${options.channel} INT_AUDIO_GAIN ${value}`)
 		},
 	}
 
@@ -56,7 +56,7 @@ export function updateActions() {
 		name: 'Increase audio gain of microphone',
 		options: [this.CHANNELS_A_FIELD, Fields.GainIncrement],
 		callback: async ({ options }) => {
-			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN INC ${options.gain}`)
+			this.sendCommand(`SET ${options.channel} INT_AUDIO_GAIN INC ${options.gain}`)
 		},
 	}
 
@@ -64,7 +64,7 @@ export function updateActions() {
 		name: 'Decrease audio gain of microphone',
 		options: [this.CHANNELS_A_FIELD, Fields.GainIncrement],
 		callback: async ({ options }) => {
-			this.sendCommand(`SET ${options.microphone} AUDIO_GAIN DEC ${options.gain}`)
+			this.sendCommand(`SET ${options.channel} INT_AUDIO_GAIN DEC ${options.gain}`)
 		},
 	}
 

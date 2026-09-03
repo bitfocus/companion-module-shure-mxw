@@ -70,7 +70,7 @@ export function updateFeedbacks() {
 			color: combineRgb(0, 0, 0),
 			bgcolor: combineRgb(255, 255, 0),
 		},
-		options: [this.CHANNELS_FIELD, Fields.GainSet],
+		options: [this.CHANNELS_FIELD, Fields.MicrophoneGainSet],
 		callback: ({ options }) => {
 			if (this.api.getChannel(parseInt(options.channel)).intAudioGain == options.gain) {
 				return true
