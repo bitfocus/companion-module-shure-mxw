@@ -64,6 +64,16 @@ export const Fields = {
 		required: true,
 		range: true,
 	},
+	MicrophoneGainSet: {
+		type: 'number',
+		label: 'Internal Microphone Gain Value (dB)',
+		id: 'gain',
+		min: -25,
+		max: 35,
+		default: 0,
+		required: true,
+		range: true,
+	},
 	Mute: {
 		type: 'dropdown',
 		label: 'Mute/Unmute/Toggle',
