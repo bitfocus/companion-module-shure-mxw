@@ -168,6 +168,7 @@ export default class MxwApi {
 		} else if (key == 'TX_STATUS') {
 			channel.txStatus = value
 			this.instance.setVariableValues({ [`${prefix}tx_status`]: value })
+			this.instance.checkFeedbacks('channel_muted')
 		} else if (key == 'TX_TYPE') {
 			channel.txType = value
 			this.instance.setVariableValues({ [`${prefix}tx_model`]: value })
