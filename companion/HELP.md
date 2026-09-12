@@ -19,6 +19,7 @@ Secondary channel functionality is not supported at this time.
 | Decrease Audio Gain of Microphone |
 | Flash Lights on Receiver          |
 | Flash Lights on Receiver Channel  |
+| Set the LED state of a channel    |
 
 ### Available feedbacks
 
